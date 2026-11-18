@@ -8,9 +8,17 @@ import joblib
 # 1. MEMUAT MODEL DAN PREPROCESSOR
 # =====================================
 
-kmeans = joblib.load("model/kmeans_model.pkl")
-preprocessor = joblib.load("model/preprocessor.pkl")
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent
+
+kmeans = joblib.load(
+    BASE_DIR / "model" / "kmeans_model.pkl"
+)
+
+preprocessor = joblib.load(
+    BASE_DIR / "model" / "preprocessor.pkl"
+)
 
 # =====================================
 # 2. MEMBUAT APLIKASI FASTAPI
